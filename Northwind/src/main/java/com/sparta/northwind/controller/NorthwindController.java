@@ -23,5 +23,8 @@ public class NorthwindController {
     @Autowired
     private ShipperRepository shipperRepository;
 
-
+    @GetMapping("/allCustomers")
+    public List<Customer> getAllCustomers(){
+        return customerRepository.findAll();
+    }
 }
