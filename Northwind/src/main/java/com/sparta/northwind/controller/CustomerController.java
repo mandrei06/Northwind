@@ -20,8 +20,6 @@ public class CustomerController {
     @Autowired
     private CustomerRepository customerRepository;
     @Autowired
-    private EmployeeRepository employeeRepository;
-    @Autowired
     private OrderRepository orderRepository;
     @Autowired
     private ShipperRepository shipperRepository;
@@ -84,64 +82,24 @@ public class CustomerController {
     }
 
 
-    //******************************************************************************************************************
-    //EMPLOYEES CRUD
-    //******************************************************************************************************************
-
-//    @GetMapping("/allEmployees")
-//    public List<Employee> getAllEmployees(){
-//        return employeeRepository.findAll();
-//    }
-//    @GetMapping("/getEmployee")
-//    public Object getEmployee(@RequestParam Integer param){
-//        return employeeRepository.findById(param);
-//    }
-//
-//    @PostMapping(value = "addEmployee")
-//    @ResponseStatus(code = HttpStatus.CREATED)
-//    public void addEmployee(@RequestBody Employee params){
-//        Employee employee=new Employee();
-//        employee.setId(params.getId());
-//        employee.setLastName(params.getLastName());
-//        employee.setFirstName(params.getFirstName());
-//        employee.setTitle(params.getTitle());
-//        employee.setTitleOfCourtesy(params.getTitleOfCourtesy());
-//        employee.setBirthDate(params.getBirthDate());
-//        employee.setHireDate(params.getHireDate());
-//        employee.setAddress(params.getAddress());
-//        employee.setCity(params.getCity());
-//        employee.setRegion(params.getRegion());
-//        employee.setPostalCode(params.getPostalCode());
-//        employee.setCountry(params.getCountry());
-//        employee.setHomePhone(params.getHomePhone());
-//        employee.setExtension(params.getExtension());
-//        employee.setPhoto(params.getPhoto());
-//        employee.setReportsTo(params.getReportsTo());
-//        employee.setPhotoPath(params.getPhotoPath());
-//        employee.setSalary(params.getSalary());
-//
-//        employeeRepository.save(employee);
-//    }
-
-
 
     //******************************************************************************************************************
     //ORDERS CRUD
     //******************************************************************************************************************
 
-//    @GetMapping("/allOrders")
-//    public List<Order> getAllOrders(){
-//        return orderRepository.findAll();
-//    }
+    @GetMapping("/allOrders")
+    public List<Order> getAllOrders(){
+        return orderRepository.findAll();
+    }
 
     //******************************************************************************************************************
     //SHIPPERS CRUD
     //******************************************************************************************************************
 
-//    @GetMapping("/allShippers")
-//    public List<Shipper> getAllShippers(){
-//        return shipperRepository.findAll();
-//    }
+    @GetMapping("/allShippers")
+    public List<Shipper> getAllShippers(){
+        return shipperRepository.findAll();
+    }
 
 
 
