@@ -33,11 +33,6 @@ public class ShipperController {
         return shipperRepository.findAll();
     }
 
-    @GetMapping("/getShipper")
-    public Object getShipper(@RequestParam String param){
-        return shipperRepository.findById(param);
-    }
-
     @PostMapping(value = "addShipper")
     @ResponseStatus(code = HttpStatus.CREATED)
     public void addShipper(@RequestBody Shipper params) {
@@ -75,3 +70,47 @@ public class ShipperController {
     public void removeShipper(@RequestParam String param){
         shipperRepository.deleteById(param);
     }
+
+    @GetMapping("/getShipper")
+    public Object getShipper(@RequestParam String param){
+        return shipperRepository.findById(param);
+    }
+
+    @GetMapping("/getShipperByRegion")
+    public ResponseEntity<String> getShipperByRegion(@RequestParam String param) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json");
+        try {
+            Optional<Shipper> result = shipperRepository.findById(param);
+            return new ResponseEntity<String>(
+                    mapper.writeValueAsString(result.get()),
+                    headers, HttpStatus.OK);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<String>(
+                "shipper not found",
+                headers, HttpStatus.OK);
+    }
+
+    @GetMapping("/getShipperById")
+    public ResponseEntity<String> getShipperById(@RequestParam Integer id) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json");
+        try {
+            Optional<Shipper> result = shipperRepository.findById(id);
+            return new ResponseEntity<String>(
+                    mapper.writeValueAsString(result.get()),
+                    headers, HttpStatus.OK);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<String>(
+                "shipper not found",
+                headers, HttpStatus.OK);
+    }
+}
+
+
+   // @GetMapping("/getShipperOrders")
+   // public void getShipperOrders(@RequestParam )
