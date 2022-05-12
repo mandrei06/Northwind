@@ -18,12 +18,6 @@ import java.util.List;
 public class ShipperController {
 
     @Autowired
-    private CustomerRepository customerRepository;
-    @Autowired
-    private EmployeeRepository employeeRepository;
-    @Autowired
-    private OrderRepository orderRepository;
-    @Autowired
     private ShipperRepository shipperRepository;
 
 
