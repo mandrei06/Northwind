@@ -7,7 +7,13 @@ import org.junit.jupiter.api.Test;
 import com.sparta.nothwind.entities.Shipper;
 import com.sparta.northwind.repositories.ShipperRepository;
 
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional
 
+
+@SprintBootTest
+@Transactional
 public class ShipperControllerTest {
 
     @Autowired
@@ -17,7 +23,6 @@ public class ShipperControllerTest {
     public void testRepositoryLoaded() {
         Assertions.assertNotNull(shipperRepository);
     }
-
 
     @Test
     public void testCreateShipper()    {
