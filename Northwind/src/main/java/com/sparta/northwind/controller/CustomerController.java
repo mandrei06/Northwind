@@ -38,7 +38,7 @@ public class CustomerController {
     }
 
     @PostMapping(value = "addCustomer")
-    @ResponseStatus(code = HttpStatus.CREATED)
+    @ResponseStatus(code = HttpStatus.OK)
     public void addCustomer(@RequestBody Customer params) {
         Customer customer=new Customer();
         customer.setId(params.getId());
@@ -57,7 +57,7 @@ public class CustomerController {
     }
 
     @PutMapping(value = "modifyCustomer")
-    @ResponseStatus(code = HttpStatus.ACCEPTED)
+    @ResponseStatus(code = HttpStatus.OK)
     public void modifyCustomer(@RequestBody Customer params) {
         Customer customer=new Customer();
         customer.setId(params.getId());
@@ -76,7 +76,7 @@ public class CustomerController {
     }
 
     @DeleteMapping(value = "deleteCustomer")
-    @ResponseStatus(code = HttpStatus.ACCEPTED)
+    @ResponseStatus(code = HttpStatus.OK)
     public void deleteCustomer(@RequestParam String param){
         customerRepository.deleteById(param);
     }
