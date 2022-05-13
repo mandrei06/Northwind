@@ -87,10 +87,10 @@ public class CustomerController {
     //ORDERS CRUD
     //******************************************************************************************************************
 
-    @GetMapping("/allOrders")
-    public List<Order> getAllOrders(){
-        return orderRepository.findAll();
-    }
+//    @GetMapping("/allOrders")
+//    public List<Order> getAllOrders(){
+//        return orderRepository.findAll();
+//    }
 
     //******************************************************************************************************************
     //SHIPPERS CRUD
