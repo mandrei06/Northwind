@@ -27,9 +27,9 @@ public class ShipperController {
         return shipperRepository.findAll();
     }
 
-    @PostMapping(value = "addShipper")
+    @PostMapping(value = "createShipper")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public void addShipper(@RequestBody Shipper params) {
+    public void createShipper(@RequestBody Shipper params) {
         Shipper shipper = new Shipper();
         shipper.setId(params.getId());
         shipper.setCompanyName(params.getCompanyName());
@@ -43,9 +43,9 @@ public class ShipperController {
         shipperRepository.save(shipper);
     }
 
-    @PutMapping(value = "modifyShipper")
+    @PutMapping(value = "updateShipper")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public void modifyShipper(@RequestBody Shipper params) {
+    public void updateShipper(@RequestBody Shipper params) {
         Shipper shipper = new Shipper();
         shipper.setId(params.getId());
         shipper.setCompanyName(params.getCompanyName());
@@ -59,9 +59,9 @@ public class ShipperController {
         shipperRepository.save(shipper);
     }
 
-    @DeleteMapping(value = "removeShipper")
+    @DeleteMapping(value = "deleteShipper")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public void removeShipper(@RequestParam String param){
+    public void deleteShipper(@RequestParam String param){
         shipperRepository.deleteById(param);
     }
 
@@ -70,58 +70,4 @@ public class ShipperController {
         return shipperRepository.findById(param);
     }
 
-    @GetMapping("/getShipperByRegion")
-    public ResponseEntity<String> getShipperByRegion(@RequestParam String region) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
-        try {
-            Optional<Shipper> result = shipperRepository.findByRegion(region);
-            return new ResponseEntity<String>(
-                    mapper.writeValueAsString(result.get()),
-                    headers, HttpStatus.OK);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return new ResponseEntity<String>(
-                "shipper not found",
-                headers, HttpStatus.OK);
-    }
-
-    @GetMapping("/getShipperByCountry")
-    public ResponseEntity<String> getShipperByCountry(@RequestParam String country) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
-        try {
-            Optional<Shipper> result = shipperRepository.findByCountry(country);
-            return new ResponseEntity<String>(
-                    mapper.writeValueAsString(result.get()),
-                    headers, HttpStatus.OK);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return new ResponseEntity<String>(
-                "shipper not found",
-                headers, HttpStatus.OK);
-    }
-
-    @GetMapping("/getShipperById")
-    public ResponseEntity<String> getShipperById(@RequestParam Integer id) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
-        try {
-            Optional<Shipper> result = shipperRepository.findById(id);
-            return new ResponseEntity<String>(
-                    mapper.writeValueAsString(result.get()),
-                    headers, HttpStatus.OK);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return new ResponseEntity<String>(
-                "shipper not found",
-                headers, HttpStatus.OK);
-    }
 }
-
-
-   // @GetMapping("/getShipperOrders")
-   // public void getShipperOrders(@RequestParam )
