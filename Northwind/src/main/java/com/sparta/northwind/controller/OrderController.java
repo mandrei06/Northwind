@@ -1,6 +1,5 @@
 package com.sparta.northwind.controller;
 
-import com.sparta.northwind.entities.Employee;
 import com.sparta.northwind.entities.Order;
 import com.sparta.northwind.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +28,14 @@ public class OrderController {
         return orderRepository.save(order);
     }
 
-
-
-
-
-    @DeleteMapping(value = "/deleteOrder")
+    @PutMapping("/editOrder")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public void deleteOrder(@RequestParam Integer param){
-        orderRepository.deleteById(param);
+    Order updateOrder(@RequestBody Order order) {
+        return orderRepository.save(order);
     }
+
+    @DeleteMapping(value = "/remove")
+    @ResponseStatus(code = HttpStatus.ACCEPTED)
+    public void removeOrder(@RequestParam Integer id){orderRepository.deleteById(id);}
 
 }
