@@ -1,18 +1,18 @@
-package com.sparta.northwind.test;
+package com.sparta.northwind.controllerstest;
 
-
+import com.sparta.northwind.entities.Shipper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import com.sparta.nothwind.entities.Shipper;
-import com.sparta.northwind.repositories.ShipperRepository;
 
+import com.sparta.northwind.repositories.ShipperRepository;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional
+import org.springframework.transaction.annotation.Transactional;
 
 
-@SprintBootTest
+@SpringBootTest
 @Transactional
 public class ShipperControllerTest {
 

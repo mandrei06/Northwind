@@ -19,10 +19,10 @@ public class CustomerController {
 
     @Autowired
     private CustomerRepository customerRepository;
-    @Autowired
-    private OrderRepository orderRepository;
-    @Autowired
-    private ShipperRepository shipperRepository;
+//    @Autowired
+//    private OrderRepository orderRepository;
+//    @Autowired
+//    private ShipperRepository shipperRepository;
 
 
     //***********************************************************************************************************
@@ -86,21 +86,21 @@ public class CustomerController {
     //******************************************************************************************************************
     //ORDERS CRUD
     //******************************************************************************************************************
-
-    @GetMapping("/allOrders")
-    public List<Order> getAllOrders(){
-        return orderRepository.findAll();
-    }
+//
+//    @GetMapping("/allOrders")
+//    public List<Order> getAllOrders(){
+//        return orderRepository.findAll();
+//    }
 
     //******************************************************************************************************************
     //SHIPPERS CRUD
     //******************************************************************************************************************
-
-    @GetMapping("/allShippers")
-    public List<Shipper> getAllShippers(){
-        return shipperRepository.findAll();
-    }
-
+//
+//    @GetMapping("/allShippers")
+//    public List<Shipper> getAllShippers(){
+//        return shipperRepository.findAll();
+//    }
+//
 
 
 
